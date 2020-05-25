@@ -1,10 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const db = require('./library/db');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const router = require('./library/router.js');
+app.get('*', (req, res) => {
+    const moduleName = req.url.split('/')[1];
+    const Controller = require('./controller/' + moduleName + '.js');
+    new Controller(req, res, db);
+});
 
-app.get('*', router);
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port);
 

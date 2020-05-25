@@ -12,11 +12,14 @@ const convertWhereToString = (obj) => {
     if (obj.hasOwnProperty('pageSize')) {
         delete obj.pageSize;
     }
-    const arr = Object.keys(obj).map(key => {
-        return `${key}=${obj[key]}`;
+    const arr = [];
+    Object.keys(obj).map(key => {
+        if (obj[key] != '') {
+            arr.push(`${key}='${obj[key]}'`);
+        }
     });
     if (arr.length > 0) {
-        return ` WHERE ` + arr.join('and');
+        return ` WHERE ` + arr.join(' and ');
     } else {
         return '';
     }
@@ -118,7 +121,7 @@ class Db {
                 if (err) {
                     reject(err);
                 } else {
-                    this.mysql.query(`SELECT COUNT(*) as total FROM ${table}`, (err, totalRes, field) => {
+                    this.mysql.query(`SELECT COUNT(*) as total FROM ${table} ${whereString}`, (err, totalRes, field) => {
                         resolve({
                             page: Number(page),
                             pageSize: Number(pageSize),
