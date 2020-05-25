@@ -6,3 +6,4 @@ npm-debug.log.*
 thumbs.db
 *.tar.gz
 !.gitkeep
+server/source
