@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 // 模块分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const htmlWebpackPlugin = HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // vue-loader
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode: 'production',
@@ -18,10 +18,9 @@ module.exports = {
         index: './source/main.js'
     },
     output: {
-        path: path.join(__dirname, './build')
-        , filename: '[name].[chunkhash].js'
-        , chunkFilename: '[name].[chunkhash:8].js'
-        // , publicPath: ""
+        path: path.join(__dirname, './dist'),
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[name].[chunkhash:8].js'
     },
     module: {
         rules: [

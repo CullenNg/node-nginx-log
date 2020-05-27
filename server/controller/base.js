@@ -30,7 +30,7 @@ class Controller {
         this.db = db;
         this.res = res;
         this.req = req;
-        const actionName = req.url.split('?')[0].split('/')[2];
+        const actionName = req.url.split('?')[0].split('/')[3];
         const queryString = req.url.split('?')[1];
         const params = req.method == 'GET' ? get_query_params(queryString) : {};
         this[actionName](params);
