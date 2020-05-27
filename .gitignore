@@ -7,4 +7,4 @@ thumbs.db
 *.tar.gz
 !.gitkeep
 server/source
-config/config.js
+config.js
