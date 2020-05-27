@@ -6,22 +6,7 @@
 
 <script>
 export default {
-    data () {
-        return {}
-    },
-    computed: {
-        loading () {
-            return this.$store.state.loading;
-        }
-    },
-    watch: {
-        /**
-         * 监听 store 里面的 loading 状态
-         */
-        loading (val) {
-            this.$loading(val);
-        }
-    }
+    
 }
 </script>
 
@@ -30,10 +15,7 @@ export default {
 #mainlayer {
     position: relative;
     padding-top: 74px;
-    padding-right: 14px;
-    margin-left: 200px;
-    padding-left: 14px;
-    
+    margin: 14px;
 }
 
 </style>

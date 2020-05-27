@@ -1,13 +1,25 @@
 <template>
     <div id="header">
-        
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handle_select">
+            <el-menu-item index="1">Nginx日志</el-menu-item>
+            <el-menu-item index="3" disabled>分析</el-menu-item>
+            <el-menu-item index="4" disabled>其他</el-menu-item>
+        </el-menu>
     </div>
 </template>
 
 <script>
 export default {
+    data () {
+        return {
+            activeIndex: '1'
+        }
+    },
 
     methods: {
+        handle_select () {
+
+        }
     }
 }
 </script>
@@ -26,6 +38,7 @@ export default {
     display: flex;
     z-index: 3;
     background-color: #fff;
+    padding-left: 14px;
     &:after {
         position: absolute;
         left: 0px;
